@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rag-skill-distillation"
+version = "0.1.0"
+description = "Distillation of information retrieval and processing skills for RAG agents"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "openai>=1,<3",
+    "python-dotenv>=1,<2",
+    "pydantic>=2,<3",
+    "PyYAML>=6,<7",
+    "httpx>=0.27,<1",
+    "tenacity>=8,<10",
+    "tqdm>=4,<5",
+    "numpy>=1.26,<3",
+    "pandas>=2,<3",
+    "pypdf>=5,<7",
+    "Pillow>=10,<13",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8,<10",
+    "ruff>=0.9,<1",
+    "ipykernel>=6,<8",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
